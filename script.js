@@ -1,8 +1,14 @@
 class Traveler {
 	constructor(name) {
 	    this.name = name;
-	    this.food = 1;
+	    this.food = 0;
 	    this._isHealthy = true
+	}
+	set initialFood (x){
+		this.food = x
+	}
+	get getInitialFood(){
+		return this.food
 	}
 	hunt(){
 	this.food = this.food + 2
@@ -15,6 +21,7 @@ class Traveler {
 			this.isHealthy = false
 		}	
 	}
+	
 }
     
 class Wagon {
@@ -60,7 +67,9 @@ let wagon = new Wagon(2);
 let henrietta = new Traveler('Henrietta');
 let juan = new Traveler('Juan');
 let maude = new Traveler('Maude');
- 
+henrietta.initialFood = 1
+juan.initialFood = 1
+maude.initialFood = 1
 console.log(`${wagon.getAvailableSeatCount()} should be 2`);
  
 wagon.join(henrietta);
